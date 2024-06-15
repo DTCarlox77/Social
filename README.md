@@ -8,7 +8,7 @@ Este es un proyecto web completo que utiliza Django y React para crear una aplic
 - **Actualizaciones en Tiempo Real:** Implementación de websockets para manejar interacciones en tiempo real como likes y posts.
 - **Versión:** Esta es una versión de prueba, con futuras mejoras planificadas.
 
-## Instalación
+## Instalación y ejecución
 
 ### Backend
 
