@@ -1,12 +1,11 @@
-import React from 'react';
-
-const websocket_url = 'http://localhost:8000/ws/posts/code/';
-const websocket = new WebSocket(websocket_url);    
+import PostSocket from "../sockets/PostSocket";
 
 function Post({ username, post_text, likes, date, index }) {
 
+    const { socket, data } = PostSocket();
+
     const incrementLike = () => {
-        websocket.send(JSON.stringify({
+        socket.send(JSON.stringify({
             'data_type' : 'increment',
             'index' : index
         }));

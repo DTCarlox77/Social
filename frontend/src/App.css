@@ -1,5 +1,4 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -40,3 +39,93 @@
 .read-the-docs {
   color: #888;
 }
+
+.presentation {
+  width: 100%;
+  max-width: 1250px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+
+/* Estilos para el componente Network */
+
+.presentation {
+  padding-right: 2rem;
+}
+
+.presentation h2, .presentation p {
+  margin-left: 1rem;
+}
+
+.description-section {
+  margin: 0;
+  border-bottom: 1px solid #ddd;
+  transition: opacity 0.5s, transform 0.5s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.description-section p {
+  text-align: justify;
+  color: #000000;
+  margin-bottom: 1rem;
+  font-size: larger;
+}
+
+.responsive-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  transition: all 0.5s ease-in-out;
+}
+
+.responsive-image:hover {
+  animation: rotating 1s ease-in-out infinite;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(2deg);
+  }
+}
+
+/* Animaciones de transición al hacer scroll */
+.fade-in {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Efecto para que las secciones se desvanecen en el desplazamiento. */
+@media (prefers-reduced-motion: no-preference) {
+  .description-section {
+      will-change: opacity, transform;
+  }
+
+  .description-section.in-view {
+      opacity: 1;
+      transform: none;
+  }
+}
+

@@ -11,6 +11,9 @@ class PostConsumer(AsyncWebsocketConsumer):
         
         self.room_name = self.scope['url_route']['kwargs']['code']
         self.room_group_name = f'network_{self.room_name}'
+        self.user = self.scope['user']
+        
+        print(self.user.username)
 
         await self.channel_layer.group_add(
             self.room_group_name,
@@ -48,7 +51,7 @@ class PostConsumer(AsyncWebsocketConsumer):
                 'type' : 'send_posts',
                 'data_type' : 'post',
                 'post' : data['post'],
-                'username' : 'default',
+                'username' : self.user.username,
                 'likes' : data['likes'],
                 'timestamp' : '14 Jul 2024'
             })
@@ -58,7 +61,7 @@ class PostConsumer(AsyncWebsocketConsumer):
                     'type' : 'send_posts',
                     'data_type' : 'post',
                     'post' : data['post'],
-                    'username' : 'default',
+                    'username' : self.user.username,
                     'likes' : data['likes'],
                     'timestamp' : '14 Jul 2024'
                 }
